@@ -2,11 +2,11 @@ package handler
 
 import (
 	"encoding/json"
-	"goserv/db"
-	"goserv/models"
 	"io/ioutil"
 	"net/http"
 
+	"github.com/Somnath004/goservices/db"
+	"github.com/Somnath004/goservices/models"
 	"github.com/gorilla/mux"
 )
 

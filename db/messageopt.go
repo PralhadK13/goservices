@@ -5,7 +5,9 @@ package db
 
 import (
 	"fmt"
-	"goserv/models"
+
+	"github.com/Somnath004/goservices/models"
+
 	"time"
 )
 

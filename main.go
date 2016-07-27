@@ -5,10 +5,10 @@ package main
 
 import (
 	"fmt"
-	"goserv/handlers"
 	"log"
 	"net/http"
 
+	"github.com/Somnath004/goservices/handlers"
 	"github.com/gorilla/mux"
 )
 

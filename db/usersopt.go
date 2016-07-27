@@ -6,8 +6,9 @@ package db
 import (
 	"crypto/rand"
 	"fmt"
-	"goserv/models"
 	"log"
+
+	"github.com/Somnath004/goservices/models"
 )
 
 var alluser = make(map[string]*model.User)
