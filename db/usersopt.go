@@ -23,6 +23,7 @@ func (this *DB) RegisterUser(user *model.User) error {
 	return nil
 }
 
+
 //Login handling User login
 func (this *DB) Login(lr *model.LoginRequest) (*model.LoginResponse, error) {
 	if lr == nil {
@@ -36,19 +37,20 @@ func (this *DB) Login(lr *model.LoginRequest) (*model.LoginResponse, error) {
 	}
 
 	// Check User credentials
-	if u.Password != lr.Password {
-		return nil, fmt.Errorf("Invalid Credentials.")
+	if u.Password == lr.Password {
+		response := new(model.LoginResponse)
+		//Create random token
+		b := make([]byte, 32)
+		rand.Read(b)
+		response.Token = fmt.Sprintf("%x", b)
+		response.Id = u.Email
+		return response, nil
 	}
 
-	response := new(model.LoginResponse)
-	//Create random token
-	b := make([]byte, 32)
-	rand.Read(b)
-	response.Token = fmt.Sprintf("%x", b)
-	response.Id = u.Email
+	return nil, fmt.Errorf("Invalid Credentials.")
 
-	return response, nil
 }
+
 
 //GetUser Get Specific User
 func (this *DB) GetUser(email string) (*model.User, error) {
